@@ -1,0 +1,9 @@
+<h1>Make a new user</h1>
+<%= form_for @user do |f| %>
+  <%= f.label "Username:" %>
+  <%= f.text_field :username %><br/> 
+  <%= f.label "Email:" %>
+  <%= f.text_field :email %><br/>
+  <%= f.submit "Log In" %>
+<% end %>
+
