@@ -1,0 +1,22 @@
+<div class="form">
+<h1>Make a new event</h1>
+<%= form_for @event do |f| %>
+  <div class="form-group">
+    <%= f.label 'Event Name' %><br />
+    <%= f.text_field :title, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :location %><br />
+    <%= f.text_field :where, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :when %><br />
+    <%= f.text_field :when, :class => 'datepicker' %>  
+  </div>
+  <div class="form-group">
+    <%= f.label :description %><br />
+    <%= f.text_area :description, class: "form-control" %>
+  </div>
+  <div><%= submit_tag "Create", class: "btn btn-dark" %></div>
+<% end %>
+</div>

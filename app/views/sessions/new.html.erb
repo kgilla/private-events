@@ -1,9 +1,11 @@
-<h1>Log In</h1>
 
+<div class="form">
+<h1>Log In</h1>
 <%= form_tag sessions_path do %>
-  <div class="field">
-    <%= label_tag :username %><br />
-    <%= text_field_tag :username, params[:username] %>
+  <div class="form-group">
+  <%= label_tag :username %><br />
+    <%= text_field_tag :username, params[:username], class: "form-control", placeholder: "username" %>
   </div>
-  <div class="actions"><%= submit_tag "Log In" %></div>
+    <div><%= submit_tag "Log In", class: "btn btn-dark btn-lg" %></div>
 <% end %>
+</div>

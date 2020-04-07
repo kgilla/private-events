@@ -7,10 +7,11 @@ class UsersController < ApplicationController
     @user = User.new(user_input)
     if @user.save
       session[:user_id] = @user.id
+      log_in
       flash[:success] = 'Successfully Created User!'
       redirect_to root_url
     else
-      flash[:error] = 'Something Went Wrong!'
+      flash.now[:danger] = 'Something Went Wrong!'
       render 'new'
     end
   end
@@ -20,6 +21,6 @@ class UsersController < ApplicationController
 
   private
   def user_input
-    params.require(:user).permit(:name, :email)
+    params.require(:user).permit(:username, :email)
   end
 end
