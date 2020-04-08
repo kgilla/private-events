@@ -7,7 +7,7 @@ class EventsController < ApplicationController
     @event = current_user.events.new(event_params)
     if @event.save
       flash[:success] = 'Created Event!'
-      redirect_to root_url
+      redirect_to "/users/#{current_user.id}"
     else
       flash[:error] = 'Something Went Wrong!'
       render 'new'
@@ -15,7 +15,7 @@ class EventsController < ApplicationController
   end
 
   def show
-    @event_detail = Event.find(params[:id])
+    @event = Event.find(params[:id])
   end
 
   def index
