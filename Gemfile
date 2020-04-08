@@ -5,7 +5,6 @@ ruby '2.6.5'
 
 gem 'bootstrap-sass'
 gem 'bootstrap'
-gem 'bootstrap-datepicker-rails'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.4', '>= 5.2.4.2'
