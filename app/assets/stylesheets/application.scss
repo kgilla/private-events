@@ -57,3 +57,42 @@ header {
 main {
   margin: 0 20% 0 20%;
 }
+
+.card {
+  background-color: whitesmoke;
+  border: 1px solid #ccc;
+  margin: 1%;
+  font-size: 4em;
+  width: 60%;
+
+  .card-header {
+    text-align: center;
+    border-bottom: 5px solid #ccc;
+
+    h2 a {
+      color: black;
+      font-size: 1em;
+      font-weight: bold;
+    }
+  }
+
+  .card-body {
+    display: flex;
+    flex-direction: row;
+
+    .left-card {
+      font-size: 1em;
+      text-align: center;
+      width: 70%;
+
+      h5 {
+        font-size: 1.5vh;
+      }
+    }
+
+    .right-card {
+      text-align: center;
+      width: 30%;
+    }
+  }
+}

@@ -1,9 +1,21 @@
-<div class="event">
-  <ul>
-    <h3><%= link_to event.title, "/events/#{event.id}" %></h3>
-    <li>When: <%= event.when %> </li>
-    <li>Where: <%= event.where %> </li>
-    <li>What's Going Down?!:<p> <%= event.description %></p> </li>
-    <a href="#">Attending?</a>
-  </ul>
+<div class="card">
+  <div class="card-header">
+    <h2 class="card-title"><%= link_to event.title, "/events/#{event.id}" %></h2>
+  </div>
+  <div class="card-body">
+    <div class="left-card">
+    <h5> Hosted By: <%= event.creator.username %> </h5>
+    <h5> Date: <%= event.when %> </h5>
+    </div>
+    <div class="right-card">
+      <% if current_user.attended_events.exists?(event.id) %>
+      <%= link_to "Attending!", not_attending_path(:id => event.id), 
+      class:"btn btn-success btn-lg" %>
+      <%else%>
+      <%= link_to "Not Attending", attend_path(:id => event.id), 
+      class:"btn btn-primary btn-lg" %>
+      <%end%>
+    </div>
+  </div>
 </div>
+

@@ -2,6 +2,14 @@
 <h1>Hey there, <%= current_user.username %>!</h1>
 <br/>
 
+<h2> Events You're Attending </h2>
+<h3>Upcoming Events</h3>
+<ul>
+  <% current_user.attended_events.each do |event| %>
+  <li><%= link_to "#{event.title}", "/events/#{event.id}" %></li>
+  <%end%>
+</ul>
+
 <h2> Your Events </h2>
 <ul>
   <%= render @events %>

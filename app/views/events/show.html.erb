@@ -1,1 +1,27 @@
-<%= render @event %>
+<h1>Event Info</h1>
+
+<div class='event-card'>
+  <h2 class="event_title"><%= @event.title %></h2>
+  <h4>When: <%= @event.when %></h4>
+  <h4>Where: <%= @event.where %></h4>
+  <h4>Hosted By: <%= @event.creator.username %></h4>
+  <h4>What The Heck Is Going On?!:</h4>
+  <p><%= @event.description %></p>
+</div>
+
+  <% if current_user.attended_events.exists?(@event.id) %>
+  <%= link_to "Attending!", not_attending_path(:id => @event.id), 
+  class:"btn btn-success" %>
+  <%else%>
+  <%= link_to "Attending?", attend_path(:id => @event.id), 
+  class:"btn btn-primary" %>
+  <%end%>
+
+<div class="attending-card">
+  <h2>Users Attending</h2>
+  <ul>
+  <% @event.attendees.each do |attendee|%>
+  <li><%= attendee.username %></li>
+  <%end%>
+  </ul>
+</div>

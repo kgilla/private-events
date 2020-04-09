@@ -4,7 +4,7 @@ class EventsController < ApplicationController
   end
 
   def create
-    @event = current_user.events.new(event_params)
+    @event = current_user.events.build(event_params)
     if @event.save
       flash[:success] = 'Created Event!'
       redirect_to "/users/#{current_user.id}"
@@ -20,6 +20,8 @@ class EventsController < ApplicationController
 
   def index
     @events = Event.all
+    @upcoming_events = Event.upcoming
+    @previous_events = Event.previous
   end
 
   private
